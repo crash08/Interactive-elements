@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интерактивные элементы</title>
+  <link rel="stylesheet" href="css/choices.min.css" />
+  <link rel="stylesheet" href="css/simplebar.css" />
+  <link rel="stylesheet" href="css/perspective-extreme.css" />
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="categories__wrap wrap">
+    <form action="https://jsonplaceholder.typicode.com/posts" method="post">
+      <fieldset>
+        <legend>Категории:</legend>
+        <ul class="categories__list">
+          <li class="categories__item">
+            <label class="categories__label" for="dino">
+              <input id="dino" type="checkbox" name="dino">
+              <span></span>
+              Динозавры
+            </label>
+          </li>
+          <li class="categories__item">
+            <label class="categories__label" for="bear">
+              <input id="bear" type="checkbox" name="bear">
+              <span></span>
+              Медведи
+            </label>
+          </li>
+          <li class="categories__item">
+            <label class="categories__label" for="roe">
+              <input id="roe" type="checkbox" name="roe">
+              <span></span>
+              Косули
+            </label>
+          </li>
+          <li class="categories__item">
+            <label class="categories__label" for="fox">
+              <input id="fox" type="checkbox" name="fox">
+              <span></span>
+              Лисы
+            </label>
+          </li>
+          <li class="categories__item">
+            <label class="categories__label" for="wolf">
+              <input id="wolf" type="checkbox" name="wolf">
+              <span></span>
+              Волки
+            </label>
+          </li>
+          <li class="categories__item">
+            <label class="categories__label" for="deer">
+              <input id="deer" type="checkbox" name="deer">
+              <span></span>
+              Олени и лоси
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </div>
+  <div class="selection__wrap wrap">
+    <label class="select" for="select">
+      <select name="select" id="select">
+        <option placeholder>Материал</option>
+        <option value="wood">Древесина</option>
+        <option value="metal">Металл</option>
+        <option value="stone">Камень</option>
+        <option value="plastic">Пластик</option>
+        <option value="сomposite">Композитный</option>
+        <option value="gypsum">Гипс</option>
+      </select>
+    </label>
+  </div>
+  <div class="maps__wrap wrap">
+    <div class="map" id="map"></div>
+  </div>
+  <div class="scrollbar__wrap wrap" id="scrollbar">
+    <p class="scrollbar__text">Сложно сказать, почему многие известные личности представлены в
+      исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены
+      соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного
+      уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка
+      зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно
+      интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих
+      проблем
+      настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно
+      открывает новые горизонты для первоочередных требований.</p>
+  </div>
+  <div class="form__wrap wrap">
+    <form class="form" action="#" id="form">
+      <div class="form__group">
+        <label class="form__label" for="name">Как вас зовут?</label>
+        <input class="form__input" type="text" name="name" id="name" placeholder="Имя*">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="tel">Укажите ваш телефон</label>
+        <input class="form__input" type="tel" name="tel" id="tel" placeholder="Телефон*">
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="mail">Укажите ваш E-mail</label>
+        <input class="form__input" type="text" name="mail" id="mail" placeholder="E-mail*">
+      </div>
+      <button class="form__button" type="submit">Заказать</button>
+    </form>
+  </div>
+  <div class="tooltip__wrap wrap">
+    <p class="tooltip__text">
+      Следует отметить, что социально-экономическое развитие способствует повышению качества переосмысления
+      внешнеэкономических политик.
+      <svg id="tooltip" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 3C7.33333 3 7 3.31919 7 3.95758C7 4.60026 7.33333 4.92159 8 4.92159C8.33333 4.92159 8.58233 4.83805 8.74699 4.67095C8.91566 4.49957 9 4.26178 9 3.95758C9 3.31919 8.66667 3 8 3ZM7.07831 13H8.91566V5.81491H7.07831V13Z"
+          fill="#BCBCBC" />
+      </svg>
+    </p>
+  </div>
+
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
+  <script src="js/choices.min.js"></script>
+  <script src="js/simplebar.min.js"></script>
+  <script src="js/just-validate.production.min.js"></script>
+  <script src="js/inputmask.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/tippy-bundle.umd.min.js"></script>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

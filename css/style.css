@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #333333;
+  background: #424242;
+}
+
+.wrap:not(:last-of-type) {
+  margin-right: 15px;
+}
+
+.wrap {
+  margin-bottom: 15px;
+}
+
+
+
+
+
+/* ============================================================================
+    #CHECKBOX
+============================================================================ */
+.categories__wrap {
+  width: 176px;
+  height: 309px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+.categories__list {
+  list-style: none;
+}
+
+.categories__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.categories__label {
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border: 1px solid #999999;
+  border-radius: 3px;
+  transition: border-color 0.2s ease;
+}
+
+input[type=checkbox] + span::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url(../img/check.svg) center center no-repeat;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+input[type=checkbox]:checked + span {
+  border-color: #CCB26E;
+}
+
+input[type=checkbox]:checked + span::before {
+  opacity: 1;
+}
+
+
+
+
+
+/* ============================================================================
+    #SELECT
+============================================================================ */
+.choices {
+  width: 176px;
+  height: 39px;
+  background: white;
+  border-radius: 10px;
+  border: none;
+}
+
+.choices__placeholder {
+  opacity: 1;
+}
+
+/* position: absolute; и z-index: 1;  -  что бы inner был выше, чем список
+   padding  -  что бы выровнить отображение выбранного элемента внутри формы choices*/
+.choices__inner {
+  position: absolute;
+  min-height: 39px;
+  padding: 6px 30px 4px 15px;
+  background-color: white;
+  border: 1px solid white;
+  z-index: 1;
+}
+
+/* убирает padding-bottom, который задан стандартно */
+.choices[data-type*="select-one"] .choices__inner {
+  padding-bottom: 0px;
+}
+
+/* цвет и форма границы вокруг внутренней формы choices при открытии и фокусировке на ней*/
+.is-open .choices__inner,
+.is-focused .choices__inner {
+  border-color: #CCB26E;
+  border-radius: 10px;
+}
+
+/* открываемый список
+margin-top  -  сдвигает его вверх вниз от формы и от inner
+z-index: 0; -  что бы он ушел на задний план за inner
+*/
+.choices__list--dropdown {
+  margin-top: -8px;
+  border: 1px solid #CCB26E;
+  /* border-top: none; */
+  border-radius: 0 0 10px 10px;
+  z-index: 0;
+}
+
+/* меняет цвет border, когда список открывается */
+.is-open .choices__list--dropdown {
+  border-color: #CCB26E;
+}
+
+/* треугольничек на форме */
+.choices[data-type*="select-one"]::after {
+  z-index: 1;
+}
+
+/* выбираемый элемент внутри списка, что бы убрать у него отступ для подписи при наведении */
+.choices__list--dropdown .choices__item--selectable {
+  padding: 10px 15px;
+}
+
+/* скрыть placeholder в открытом листе */
+.choices__list--dropdown .choices__placeholder {
+  display: none;
+}
+
+/* отступ у первого элемента списка, в данном случае у второго,
+так-как первый элемент placeholder и он скрыт, поэтому обращаемся ко второму элементу */
+.choices__list--dropdown .choices__item--selectable:nth-child(2) {
+  padding-top: 15px;
+}
+
+/* меняет стиль треугольничка внутри select*/
+.choices[data-type*="select-one"]::after {
+  height: 8px;
+  width: 8px;
+  margin-top: -7px;
+  border-color: transparent transparent #999999 #999999;
+  border-width: 1px;
+  transform: rotate(-45deg);
+}
+
+/* меняет стиль треугольничка после нажатия на select */
+.choices.is-focused.is-open::after {
+  margin-top: -3.5px;
+  border-color: transparent;
+  border-right-color: #CCB26E;
+  border-top-color: #CCB26E;
+}
+
+
+
+
+
+/* ============================================================================
+    #YANDEX MAPS
+============================================================================ */
+.map {
+  width: 460px;
+  height: 460px;
+}
+
+/* [class*='ground-pane'] {
+  filter: grayscale(1);
+} */
+
+/* [class*='copyright'],
+[class*='map-copyrights-promo'] {
+  display: none;
+} */
+
+
+
+
+
+/* ============================================================================
+    #SCROLLBAR
+============================================================================ */
+.scrollbar__wrap {
+  width: 400px;
+  height: 310px;
+  /* overflow: auto; */
+  background: white;
+}
+
+.scrollbar__text {
+  padding: 20px 30px;
+  line-height: 24px;
+}
+
+/* цвет скроллбара */
+.simplebar-scrollbar::before {
+  background-color: #CCB26E;
+}
+
+/* расстояние от скроллбара до краев */
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
+  top: 7px;
+  bottom: 7px;
+}
+
+/* прозрачность скроллбара */
+.simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1;
+}
+
+/* ширина полосы прокрутрки -4px на зазоры. Т.е. сейчас ширина задана 6px */
+.simplebar-track.simplebar-vertical {
+  width: 10px;
+}
+
+
+
+
+
+  /* ============================================================================
+      #Валидация формы  -  JustValidate
+  ============================================================================ */
+
+.form__wrap {
+  width: 440px;
+  height: 410px;
+  padding: 21px 30px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__label {
+  align-self: flex-start;
+  margin-bottom: 5px;
+  padding-left: 20px;
+  color: #FF5C00;
+}
+
+.form__input {
+  width: 380px;
+  height: 60px;
+  padding-left: 24px;
+  font-size: 16px;
+  color: #333333;
+  border: 1px solid #FF5C00;
+  border-radius: 10px;
+}
+
+.just-validate-error-field {
+  border-color: red;
+  outline-color: red !important;
+}
+
+.form__input::placeholder {
+  color: #999999;
+}
+
+.form__input:focus {
+  outline: 2px solid #FF5C00;
+}
+
+.form__group:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.form__group:last-of-type {
+  margin-bottom: 33px;
+}
+
+.form__button {
+  align-self: flex-start;
+  padding: 18.5px 53px;
+  font-size: 20px;
+  line-height: 23px;
+  color: white;
+  background: #FF5C00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.just-validate-error-label {
+  position: absolute;
+  padding-left: 20px;
+}
+
+.form__button:active {
+  transform: translate(2px, 2px);
+}
+
+.form__button:hover {
+  background-color: #f87b33;
+}
+
+
+
+
+  /* ============================================================================
+      #Tooltip  -  Tippy.js
+  ============================================================================ */
+.tooltip__wrap {
+  width: 375px;
+  height: 160px;
+  padding: 20px 30px;
+  color: #333333;
+  background: white;
+}
+
+.tooltip__text {
+  width: 80%;
+  line-height: 1.7;
+}
+
+.tooltip__text svg {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip__text svg path {
+  transition: fill 0.2s ease;
+}
+
+.tooltip__text svg:hover path {
+  fill: #CCB26E;
+}
+
+/* Задаем стили для новой темы контейнера тултипа */
+.tippy-box[data-theme~='myTheme'] {
+  background-color: #666666;
+  color: white;
+  border-radius: 0;
+}
+
+/* Задаем стили для треугольничка той же темы */
+.tippy-box[data-theme~='myTheme'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #666666;
+}
+
+/* Стили для контейнера непосредственно с текстом */
+.tippy-content {
+  padding: 8px 15px;
+  font-size: 12px;
+  line-height: 16px;
+}
